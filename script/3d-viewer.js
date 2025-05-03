@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Камера
     const camera = new THREE.PerspectiveCamera(
-        75, 
+        50, 
         container.clientWidth / container.clientHeight, 
         0.1, 
         1000
     );
-    camera.position.z = 5;
+    camera.position.z = 10;
 
     // Рендерер
     const renderer = new THREE.WebGLRenderer({ antialias: true });
