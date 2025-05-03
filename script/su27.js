@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     smoothScroll();
 });
 
+    // Инициализация полноэкранного просмотра
+    initFullscreenView();
+
 // Слайдер галереи
 function initGallerySlider() {
     const slider = document.querySelector('.gallery-slider .slider-container');
@@ -71,5 +74,61 @@ function smoothScroll() {
                 });
             }
         });
+    });
+}
+
+// Открывающиеся изображения
+
+function initFullscreenView() {
+    // Создаем элементы для полноэкранного просмотра
+    const overlay = document.createElement('div');
+    overlay.className = 'fullscreen-overlay';
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.className = 'close-fullscreen';
+    closeBtn.innerHTML = '&times;';
+    
+    const img = document.createElement('img');
+    img.className = 'fullscreen-image';
+    
+    const caption = document.createElement('div');
+    caption.className = 'fullscreen-caption';
+    
+    overlay.appendChild(img);
+    overlay.appendChild(caption);
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+    
+    // Находим все изображения с классом zoomable-image
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    
+    zoomableImages.forEach(image => {
+        image.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const imgSrc = this.querySelector('img').src;
+                const imgAlt = this.querySelector('img').alt;
+                
+                img.src = imgSrc;
+                caption.textContent = imgAlt;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Закрытие по клику на overlay или кнопку
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay || e.target === closeBtn) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 }
