@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Three.js основная библиотека -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+
+    <!-- Загрузчик для GLTF/GLB формата -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Опционально: Draco-компрессия (если модель сжата) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/draco/gltf/draco_wasm_wrapper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/draco/gltf/draco_decoder.js"></script>
+
+    <!-- Орбитальные контролы для вращения модели -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Су-27 "Flanker" | Музей авиации</title>
@@ -163,6 +179,16 @@
                 </div>
             </section>
 
+            <section class="content-section">
+                <h2>3Д Модель</h2>
+
+                <div class="section-content">
+                    <div id="jet3dview"></div>
+                </div>
+            </section>
+
+
+
             <!-- Интересные факты -->
             <section id="facts" class="content-section">
                 <h2>Интересные факты</h2>
@@ -185,6 +211,8 @@
                     <h4>Постер: "Ваши ракеты - мои партнеры для танцев"</h2>
                 </div>
             </section>
+
+            <div class="test_blank">ЗДЕСЬ БУДЕТ ОКНО ТЕСТА</div>
         </article>
     </main>
 
@@ -194,16 +222,15 @@
             <div class="footer-links">
                 <a href="../about.html">О музее</a>
                 <a href="../contacts.html">Контакты</a>
-                <a href="../partners.html">Партнеры</a>
             </div>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
+
             </div>
-            <p class="copyright">© 2023 Музей авиации России</p>
+            <p class="copyright">© 2025 Музей авиации России</p>
         </div>
     </footer>
 
     <script src="/script/su27.js"></script>
+    <script src="/script/3d-viewer.js"></script>
 </body>
 </html>
