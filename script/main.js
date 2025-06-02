@@ -41,16 +41,68 @@ const aircrafts = [
         image: "img/service/su57_card.jpg",
         video: "video/su57.mp4",
         detailPage: "jets/su57.html"
+    },
+    {
+        id: "mig29",
+        title: "МиГ-29 'Фулкрам'",
+        category: "истребители",
+        description: "Советский многоцелевой истребитель четвёртого поколения.",
+        specs: {
+            year: "1977",
+            crew: "1 человек",
+            speed: "2450 км/ч"
+        },
+        image: "img/service/mig29_card.jpg",
+        video: "video/mig29.mp4",
+        detailPage: "jets/mig29.html"
+    },
+    {
+        id: "su35",
+        title: "Су-35 'Фланкер-Э'",
+        category: "истребители",
+        description: "Российский многоцелевой сверхманёвренный истребитель поколения 4++.",
+        specs: {
+            year: "2007",
+            crew: "1 человек",
+            speed: "2500 км/ч"
+        },
+        image: "img/service/su35_card.jpg",
+        video: "video/su35.mp4",
+        detailPage: "jets/su35.html"
+    },
+    {
+        id: "tu22m",
+        title: "Ту-22М 'Ответный удар'",
+        category: "бомбардировщики",
+        description: "Советский турбовинтовой стратегический бомбардировщик-ракетоносец.",
+        specs: {
+            year: "1952",
+            crew: "6-7 человек",
+            speed: "925 км/ч"
+        },
+        image: "img/service/tu22m_card.jpg",
+        video: "video/tu95.mp4",
+        detailPage: "jets/tu95.html"
     }
 ];
+
+// Константы для пагинации
+const ITEMS_PER_PAGE = 3;
+let currentPage = 1;
+let currentCategory = 'Все';
+let currentSearchTerm = '';
+let filteredAircrafts = [...aircrafts];
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     initNewsSlider();
     initAircraftCatalog();
+    initSearch();
+    initCategoryFilter();
+    initPaginationButtons();
 });
 
-// Слайдер новостей (без изменений)
+// Инициализация слайдера новостей
 function initNewsSlider() {
     const slider = document.querySelector('.slider-container');
     const slides = document.querySelectorAll('.slide');
@@ -98,35 +150,95 @@ function initNewsSlider() {
     startSlider();
 }
 
-// Каталог экспонатов
+// Инициализация каталога
 function initAircraftCatalog() {
     loadAircrafts();
+}
 
+// Инициализация поиска
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+
+    const handleSearch = () => {
+        currentSearchTerm = searchInput.value.toLowerCase();
+        applyFilters();
+    };
+
+    searchBtn.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') handleSearch();
+    });
+}
+
+// Инициализация фильтра по категориям
+function initCategoryFilter() {
     const filterButtons = document.querySelectorAll('.category-btn');
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            loadAircrafts(button.textContent);
+            currentCategory = button.textContent;
+            applyFilters();
         });
     });
 }
 
-// Загрузка экспонатов
-function loadAircrafts(category = 'Все') {
+// Инициализация кнопок пагинации
+function initPaginationButtons() {
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            loadAircrafts();
+            renderPagination();
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredAircrafts.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+            currentPage++;
+            loadAircrafts();
+            renderPagination();
+        }
+    });
+}
+
+// Применение всех фильтров (категория + поиск)
+function applyFilters() {
+    currentPage = 1;
+    
+    // Фильтрация по категории
+    filteredAircrafts = currentCategory === 'Все' 
+        ? [...aircrafts] 
+        : aircrafts.filter(a => a.category === currentCategory.toLowerCase());
+    
+    // Фильтрация по поисковому запросу
+    if (currentSearchTerm) {
+        filteredAircrafts = filteredAircrafts.filter(aircraft => 
+            aircraft.title.toLowerCase().includes(currentSearchTerm) || 
+            aircraft.description.toLowerCase().includes(currentSearchTerm)
+        );
+    }
+    
+    loadAircrafts();
+    renderPagination();
+}
+
+// Загрузка и отображение экспонатов
+function loadAircrafts() {
     const container = document.getElementById('aircraft-container');
     container.innerHTML = '';
 
-    const filteredAircrafts = category === 'Все' 
-        ? aircrafts 
-        : aircrafts.filter(a => a.category === category.toLowerCase());
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const paginatedAircrafts = filteredAircrafts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-    if (filteredAircrafts.length === 0) {
+    if (paginatedAircrafts.length === 0) {
         container.innerHTML = '<p class="no-results">Экспонаты не найдены</p>';
         return;
     }
 
-    filteredAircrafts.forEach(aircraft => {
+    paginatedAircrafts.forEach(aircraft => {
         const card = document.createElement('div');
         card.className = 'aircraft-card';
         card.dataset.category = aircraft.category;
@@ -156,4 +268,73 @@ function loadAircrafts(category = 'Все') {
         
         container.appendChild(card);
     });
+}
+
+// Отрисовка пагинации
+function renderPagination() {
+    const totalPages = Math.ceil(filteredAircrafts.length / ITEMS_PER_PAGE);
+    const pageNumbers = document.getElementById('page-numbers');
+    pageNumbers.innerHTML = '';
+
+    // Определяем диапазон отображаемых страниц
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+
+    // Корректируем диапазон, если он слишком короткий
+    if (endPage - startPage < 4) {
+        if (currentPage < 3) {
+            endPage = Math.min(5, totalPages);
+        } else {
+            startPage = Math.max(totalPages - 4, 1);
+        }
+    }
+
+    // Кнопка первой страницы
+    if (startPage > 1) {
+        const firstPageBtn = createPageButton(1);
+        pageNumbers.appendChild(firstPageBtn);
+        if (startPage > 2) {
+            pageNumbers.appendChild(createEllipsis());
+        }
+    }
+
+    // Основные кнопки страницф
+    for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = createPageButton(i);
+        pageNumbers.appendChild(pageBtn);
+    }
+
+    // Кнопка последней страницы
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            pageNumbers.appendChild(createEllipsis());
+        }
+        const lastPageBtn = createPageButton(totalPages);
+        pageNumbers.appendChild(lastPageBtn);
+    }
+
+    // Обновляем состояние кнопок "Назад/Вперед"
+    document.getElementById('prev-page').disabled = currentPage === 1;
+    document.getElementById('next-page').disabled = currentPage === totalPages || totalPages === 0;
+}
+
+// Создание кнопки страницы
+function createPageButton(pageNumber) {
+    const pageBtn = document.createElement('button');
+    pageBtn.textContent = pageNumber;
+    pageBtn.classList.toggle('active', pageNumber === currentPage);
+    pageBtn.addEventListener('click', () => {
+        currentPage = pageNumber;
+        loadAircrafts();
+        renderPagination();
+    });
+    return pageBtn;
+}
+
+// Создание разделителя (многоточия)
+function createEllipsis() {
+    const ellipsis = document.createElement('span');
+    ellipsis.textContent = '...';
+    ellipsis.style.padding = '0 5px';
+    return ellipsis;
 }

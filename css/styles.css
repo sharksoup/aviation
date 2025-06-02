@@ -16,6 +16,7 @@ body {
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
+        background-image: url(/img/service/main_background.png);
 }
 
 /* Навигационная панель */
@@ -369,6 +370,316 @@ footer {
     opacity: 0.8;
 }
 
+
+/* Тест поиска и страниц */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+
+}
+
+#search-input {
+    padding: 0.5rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    width: 350px;
+    transition: all 0.3s;
+}
+
+#search-input:focus {
+    border-color: var(--accent-color);
+}
+
+#search-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#search-btn:hover {
+    background: #4a80e8;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #4a80e8;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-numbers button {
+    background: #ddd;
+    color: #333;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.page-numbers button.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Викторина */
+
+/* Стили для таблицы результатов на главной странице (ВРЕМЕННО) */
+.victorine-results {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.victorine-results h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.victorine-results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.victorine-results th, .victorine-results td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.victorine-results th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.victorine-results tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.victorine-results tr:hover {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .victorine-results table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .victorine-modal {
+        width: 95%;
+    }
+}
+
+/* Стили для раздела результатов викторины */
+.victorine-section {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.victorine-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.victorine-filter {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.victorine-filter select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 1rem;
+}
+
+#refresh-victorine {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#refresh-victorine:hover {
+    background-color: #4a80e8;
+}
+
+.victorine-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    border-left: 4px solid var(--accent-color);
+}
+
+.stat-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.victorine-results-table {
+    overflow-x: auto;
+}
+
+#victorine-results {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#victorine-results th {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+#victorine-results td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ddd;
+}
+
+#victorine-results tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#victorine-results tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Дополнительные стили для викторины */
+.quiz-results .result-score {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.quiz-results .score-percentage {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+}
+
+.quiz-results .score-details {
+    font-size: 1rem;
+    color: #666;
+}
+
+.score-bar-container {
+    position: relative;
+    height: 24px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.score-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: width 0.5s ease;
+}
+
+.score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.victorine-modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.quiz-option {
+    animation: fadeIn 0.3s ease-out;
+    animation-fill-mode: backwards;
+}
+
+.quiz-option:nth-child(1) { animation-delay: 0.1s; }
+.quiz-option:nth-child(2) { animation-delay: 0.2s; }
+.quiz-option:nth-child(3) { animation-delay: 0.3s; }
+.quiz-option:nth-child(4) { animation-delay: 0.4s; }
+
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .navbar {
@@ -412,5 +723,26 @@ footer {
 
     .aircraft-card {
         max-height: 500px;
+    }
+        .victorine-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .victorine-filter {
+        width: 100%;
+    }
+    
+    .victorine-filter select {
+        width: 100%;
+    }
+    
+    #refresh-victorine {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .victorine-stats {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Three.js основная библиотека -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+
+    <!-- Загрузчик для GLTF/GLB формата -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Опционально: Draco-компрессия (если модель сжата) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/draco/gltf/draco_wasm_wrapper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/draco/gltf/draco_decoder.js"></script>
+
+    <!-- Орбитальные контролы для вращения модели -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ту-160 "Белый лебедь" | Музей авиации</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/jet_pages/tu160_page.css">
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../img/service/favicon_jet.png" alt="Логотип музея авиации">
+                <div class="logo-text">Музей авиации</div>
+            </div>
+            <div class="nav-links">
+                <a href="/index.html">Главная</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="container exhibit-container">
+
+        <!-- Заголовок и навигация -->
+        <section class="exhibit-header">
+            <h1>Ту-160 "Белый лебедь"</h1>
+            <img src="/img/tu160/tu160_transparent.png" class="jet_transparent" alt="">
+            <div class="exhibit-nav">
+                <a href="#overview">Обзор</a>
+                <a href="#history">История</a>
+                <a href="#design">Конструкция</a>
+                <a href="#specs">Характеристики</a>
+                <a href="#combat">Боевое применение</a>
+                <a href="#facts">Интересные факты</a>
+            </div>
+        </section>
+
+        <!-- Галерея слайдер -->
+        <section class="exhibit-gallery">
+            <div class="gallery-slider">
+                <div class="slider-container">
+                    <div class="slide">
+                        <img src="/img/tu160/tu160_flight.jpg" alt="Ту-160 в полете">
+                    </div>
+                    <div class="slide">
+                        <img src="/img/tu160/tu160_armory.jpg" alt="Ту-160 на авиашоу">
+                    </div>
+                    <div class="slide">
+                        <img src="/img/tu160/tu160_show.jpg" alt="Шоу Ту-160">
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Основной контент -->
+        <article class="exhibit-content">
+            <!-- Обзор -->
+            <section id="overview" class="content-section">
+                <h2>Обзор</h2>
+                <div class="section-content">
+                    <img src="/img/tu160/tu160_takeoff.jpg" alt="Ту-160 на взлете" class="float-right">
+                    <p>Ту-160 (код НАТО: Blackjack) — советский/российский сверхзвуковой стратегический бомбардировщик-ракетоносец с изменяемой геометрией крыла. Является самым крупным и мощным боевым самолетом в истории авиации.</p>
+                    <p>За характерную белоснежную окраску и изящные формы получил неофициальное прозвище "Белый лебедь". Способен нести ядерное оружие и крылатые ракеты, представляя собой ключевой элемент стратегических ядерных сил России.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+
+            <!-- История -->
+            <section id="history" class="content-section">
+                <h2>История создания</h2>
+                <div class="section-content">
+                    <img src="/img/tu160/tu160_assembly.jpg" alt="Ту-160 на службе" class="float-left">
+                    <p>Разработка Ту-160 началась в 1970-х годах как ответ на американскую программу B-1 Lancer. ОКБ Туполева выиграло конкурс у ОКБ Мясищева и Сухого.</p>
+                    <p>Первый полет состоялся 18 декабря 1981 года. На вооружение стратегической авиации СССР самолет был принят в 1987 году.</p>
+                    <p>После распада СССР производство было приостановлено, но в 2000-х годах возобновлено. В 2018 году началась программа модернизации до версии Ту-160М2 с новыми двигателями и авионикой.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+
+            <!-- Конструкция -->
+            <section id="design" class="content-section">
+                <h2>Конструкция</h2>
+                <div class="section-content">
+                    <p>Ту-160 выполнен по интегральной аэродинамической схеме с изменяемой геометрией крыла. Основные особенности:</p>
+                    <ul>
+                        <li>Крыло с изменяемой стреловидностью (20°-65°)</li>
+                        <li>Четыре двухконтурных турбореактивных двигателя НК-32</li>
+                        <li>Система дозаправки в воздухе</li>
+                        <li>Экипаж из 4 человек в катапультных креслах</li>
+                    </ul>
+                    <p>Фюзеляж выполнен по интегральной схеме с плавным сопряжением крыла и корпуса. Шасси трехопорное с мощными стойками для посадки на грунтовые аэродромы.</p>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="zoomable-image">
+                    <img src="/img/tu160/tu160_blueprint_1.jpg" alt="Чертеж Ту-160" class="blueprint">
+                    <img src="/img/tu160/tu160_blueprint_2.jpg" alt="Схема Ту-160" class="blueprint">
+                </div>
+            </section>
+
+            <!-- Характеристики -->
+            <section id="specs" class="content-section">
+                <h2>Технические характеристики</h2>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <h3>Размеры</h3>
+                        <ul>
+                            <li>Длина: 54.1 м</li>
+                            <li>Размах крыла: 55.7/35.6 м (мин/макс стреловидность)</li>
+                            <li>Высота: 13.1 м</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h3>Двигатели</h3>
+                        <ul>
+                            <li>Тип: ТРДД НК-32 (4×)</li>
+                            <li>Тяга: 4×25,000 кгс (на форсаже)</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h3>Летные данные</h3>
+                        <ul>
+                            <li>Макс. скорость: 2230 км/ч (М=2.05)</li>
+                            <li>Практический потолок: 16,000 м</li>
+                            <li>Дальность: 12,300 км (без дозаправки)</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h3>Вооружение</h3>
+                        <ul>
+                            <li>Ракеты: Х-55, Х-101/102, Х-15</li>
+                            <li>Бомбы: свободнопадающие и корректируемые</li>
+                            <li>Боевая нагрузка: до 45,000 кг</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Боевое применение -->
+            <section id="combat" class="content-section">
+                <h2>Боевое применение</h2>
+                <div class="section-content">
+                    <p>Ту-160 участвовал в нескольких операциях:</p>
+                    <ul>
+                        <li>Патрулирование воздушного пространства (с 2007 года)</li>
+                        <li>Участие в сирийской кампании (2015, 2017, 2018 гг.)</li>
+                        <li>Демонстрационные полеты в Венесуэле (2008, 2013 гг.)</li>
+                    </ul>
+                    <p>В 2015 году впервые применил крылатые ракеты Х-101 по объектам террористов в Сирии.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>3Д Модель</h2>
+                <div class="section-content">
+                    <div id="jet3dview"></div>
+                </div>
+            </section>
+
+            <!-- Интересные факты -->
+            <section id="facts" class="content-section">
+                <h2>Интересные факты</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <h3>Самый крупный боевой самолет</h3>
+                        <p>Ту-160 является самым крупным сверхзвуковым самолетом и самым тяжелым боевым самолетом в мире.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Рекорды</h3>
+                        <p>В 2010 году два Ту-160 установили мировой рекорд дальности полета для бомбардировщиков - 18,000 км с одной дозаправкой.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Культурное влияние</h3>
+                        <p>Ту-160 стал символом стратегической авиации России и фигурирует в песне "Ту-160" группы "Любэ".</p>
+                    </div>
+                </div>
+                <div class="poster_section">
+                    <img src="/img/tu160/tu160_raf.jpg" alt="Постер Ту-160" class="poster">
+                    <h4>Архивное фото ТУ-160 ВВС РФ</h2>
+                </div>
+            </section>
+
+            <div class="test_blank">Пройти викторину</div>
+        </article>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../about.html">О музее</a>
+                <a href="../contacts.html">Контакты</a>
+            </div>
+            <div class="social-icons">
+                <!-- Социальные иконки -->
+            </div>
+            <p class="copyright">© 2025 Музей авиации России</p>
+        </div>
+    </footer>
+
+    <script src="/script/jet_scripts/tu160.js"></script>
+    <script src="/script/3d/3d-tu160.js"></script>
+    <script src="/script/victorine.js"></script>
+</body>
+</html>
