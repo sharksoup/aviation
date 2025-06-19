@@ -1,18 +1,32 @@
 // Данные экспонатов
 const aircrafts = [
-    {
-        id: "su27",
-        title: "Су-27 'Фланкер'",
+        {
+        id: "su57",
+        title: "Су-57 'Фельдмаршал'",
         category: "истребители",
-        description: "Многоцелевой высокоманевренный всепогодный истребитель четвертого поколения.",
+        description: "Многоцелевой высокоманевренный всепогодный истребитель пятого поколения с управляемым вектором тяги.",
         specs: {
-            year: "1977",
+            year: "2001",
             crew: "1 человек",
-            speed: "2500 км/ч"
+            speed: "2600 км/ч"
         },
-        image: "img/service/su27_card.png",
-        video: "video/su27.mp4",
-        detailPage: "jets/su27.html"
+        image: "img/service/su57_card_3.png",
+        video: "video/su57.mp4",
+        detailPage: "jets/su57.html"
+    },
+    {
+        id: "su34",
+        title: "Су-34 'Утенок'",
+        category: "истребители",
+        description: "Российский многоцелевой истребитель 4++ поколения.",
+        specs: {
+            year: "1990",
+            crew: "2 человека",
+            speed: "1900 км/ч"
+        },
+        image: "img/service/su34_card.jpg",
+        video: "/media/su34/su34_ooes.mp4",
+        detailPage: "jets/su34.html"
     },
     {
         id: "tu160",
@@ -28,33 +42,19 @@ const aircrafts = [
         video: "video/tu160.mp4",
         detailPage: "jets/tu160.html"
     },
-    {
-        id: "su57",
-        title: "Су-57 'Felon'",
+        {
+        id: "su27",
+        title: "Су-27 'Фланкер'",
         category: "истребители",
-        description: "Многоцелевой высокоманевренный всепогодный истребитель пятого поколения с управляемым вектором тяги.",
-        specs: {
-            year: "2001",
-            crew: "1 человек",
-            speed: "2600 км/ч"
-        },
-        image: "img/service/su57_card.jpg",
-        video: "video/su57.mp4",
-        detailPage: "jets/su57.html"
-    },
-    {
-        id: "mig29",
-        title: "МиГ-29 'Фулкрам'",
-        category: "истребители",
-        description: "Советский многоцелевой истребитель четвёртого поколения.",
+        description: "Многоцелевой высокоманевренный всепогодный истребитель четвертого поколения.",
         specs: {
             year: "1977",
             crew: "1 человек",
-            speed: "2450 км/ч"
+            speed: "2500 км/ч"
         },
-        image: "img/service/mig29_card.jpg",
-        video: "video/mig29.mp4",
-        detailPage: "jets/mig29.html"
+        image: "img/service/su27_card.png",
+        video: "video/su27.mp4",
+        detailPage: "jets/su27.html"
     },
     {
         id: "su35",
@@ -72,7 +72,7 @@ const aircrafts = [
     },
     {
         id: "tu22m",
-        title: "Ту-22М 'Ответный удар'",
+        title: "Ту-22М3 'Ответный удар'",
         category: "бомбардировщики",
         description: "Советский турбовинтовой стратегический бомбардировщик-ракетоносец.",
         specs: {
@@ -85,6 +85,9 @@ const aircrafts = [
         detailPage: "jets/tu95.html"
     }
 ];
+
+
+
 
 // Константы для пагинации
 const ITEMS_PER_PAGE = 3;
