@@ -11,7 +11,7 @@ const aircrafts = [
             speed: "2600 км/ч"
         },
         image: "img/service/su57_card_3.png",
-        video: "video/su57.mp4",
+        video: "/media/cards/su57_card_video.mp4",
         detailPage: "jets/su57.html"
     },
     {
@@ -39,7 +39,7 @@ const aircrafts = [
             speed: "2230 км/ч"
         },
         image: "img/service/tu160_card.jpg",
-        video: "video/tu160.mp4",
+        video: "/media/cards/tu160_card_video.mp4",
         detailPage: "jets/tu160.html"
     },
         {
@@ -52,8 +52,8 @@ const aircrafts = [
             crew: "1 человек",
             speed: "2500 км/ч"
         },
-        image: "img/service/su27_card.png",
-        video: "video/su27.mp4",
+        image: "img/service/su27_card.jpg",
+        video: "/media/cards/su27_card_video.mp4",
         detailPage: "jets/su27.html"
     },
     {
@@ -67,22 +67,22 @@ const aircrafts = [
             speed: "2500 км/ч"
         },
         image: "img/service/su35_card.jpg",
-        video: "video/su35.mp4",
+        video: "/media/cards/su35_card_video.mp4",
         detailPage: "jets/su35.html"
     },
     {
-        id: "tu22m",
+        id: "tu22m3",
         title: "Ту-22М3 'Ответный удар'",
         category: "бомбардировщики",
         description: "Советский турбовинтовой стратегический бомбардировщик-ракетоносец.",
         specs: {
-            year: "1952",
+            year: "1972",
             crew: "6-7 человек",
-            speed: "925 км/ч"
+            speed: "2300 км/ч"
         },
         image: "img/service/tu22m_card.jpg",
-        video: "video/tu95.mp4",
-        detailPage: "jets/tu95.html"
+        video: "/media/tu22m3/tu22m3_video.mp4",
+        detailPage: "jets/tu22m3.html"
     }
 ];
 
