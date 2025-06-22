@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoSources = {
         'player1': '/media/su34/su34_ooes.mp4', // Путь к видеофайлу относительно HTML-файла
         // Можно добавить другие плееры: 'player2': 'videos/another_video.mp4'
-        'player2': '/media/tu22m3/tu22m3_takeoff_video.mp4' // Путь к видеофайлу относительно HTML-файла
+        'player2': '/media/tu22m3/tu22m3_takeoff_video.mp4', // Путь к видеофайлу относительно HTML-файла
+        // Можно добавить другие плееры: 'player2': 'videos/another_video.mp4'
+        'player3': '/media/su35/su35_video.mp4' // Путь к видеофайлу относительно HTML-файла
         // Можно добавить другие плееры: 'player2': 'videos/another_video.mp4'
     };
     
