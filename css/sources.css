@@ -1,0 +1,91 @@
+/* Стили для страницы с источниками */
+.sources-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.source-category {
+    margin-bottom: 2.5rem;
+}
+
+.source-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.source-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #eee;
+}
+
+.source-title {
+    color: var(--dark-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.source-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.source-list li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.5;
+}
+
+.source-list li:before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.nav-links .active {
+    color: var(--accent-color);
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-links .active:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: cornflowerblue;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .sources-container {
+        padding: 1.5rem;
+    }
+    
+    .source-item {
+        padding-left: 0.5rem;
+    }
+    
+    .source-list li {
+        padding-left: 1rem;
+    }
+}

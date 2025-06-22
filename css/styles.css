@@ -680,6 +680,26 @@ footer {
 .quiz-option:nth-child(4) { animation-delay: 0.4s; }
 
 
+
+
+/* Дополнения к основному CSS для страницы источников */
+.source-category:last-child {
+    margin-bottom: 0;
+}
+
+.source-list li {
+    transition: transform 0.2s;
+}
+
+.source-list li:hover {
+    transform: translateX(5px);
+}
+
+
+
+
+
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .navbar {
